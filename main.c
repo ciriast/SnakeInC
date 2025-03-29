@@ -1,8 +1,15 @@
 #include <stdio.h>
 
-int main() {
-    printf("Welcome to Snake made in C \n");
-    printf("ChatGpt configured my vim file and now this looks great\n");
-    return 0;
+int sumTwoNumbers() {
+    int num1 = 20;
+    int num2 = 30;
+
+    return num1 + num2;
 }
 
+int main() {
+    printf("Welcome to Snake made in C \n");
+
+    printf("%d\n", sumTwoNumbers());
+    return 0;
+}
