@@ -11,5 +11,10 @@ int main() {
     printf("Welcome to Snake made in C \n");
 
     printf("%d\n", sumTwoNumbers());
+
+    for(int i = 1; i <= 10; ++i) {
+        printf("%d\n", i);
+    }
+
     return 0;
 }
