@@ -7,9 +7,15 @@ int sumTwoNumbers() {
     return num1 + num2;
 }
 
-void draw_board() {
-    for(int i = 0; i < 4; ++i) {
-        printf("######");
+void draw_board(int x, int y) {
+    char boardCharacters[y];
+
+    for(int i = 0; i < y; ++i) {
+        boardCharacters[i] = '#';
+    }
+
+    for(int i = 0; i < x; ++i) {
+        printf("%s\n", boardCharacters);
     }
 }
 
@@ -22,7 +28,7 @@ int main() {
         printf("%d\n", i);
     }
     
-    draw_board();
+    draw_board(5, 5);
 
     return 0;
 }
