@@ -7,7 +7,7 @@ int sumTwoNumbers() {
     return num1 + num2;
 }
 
-void draw_board(int x, int y) {
+void draw_board(int rows, int cols) {
 
     for(int i = 0; i < x; ++i) {
         for(int yndex = 0; yndex < y; ++yndex) {
