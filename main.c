@@ -8,25 +8,30 @@ int sumTwoNumbers() {
 }
 
 void draw_board(int rows, int cols) {
+    // superior row
+    for (int i = 0; i < cols; ++i)
+        putchar('#');
+    
+    putchar('\n');
 
-    for(int i = 0; i < x; ++i) {
-        for(int yndex = 0; yndex < y; ++yndex) {
-            char characterToUse = '#';
-            
-            if ((yndex != 0 && y - (yndex + 1) != 0) && (i != 0)) {
-                characterToUse = '.';
-            }
+    // interiors rows 
+    for (int i = 0; i < rows; ++i) {
+        // left border
+        putchar('#');
 
-            if (x - (i + 1) == 0)
-                characterToUse = '#';
+        for (int j = 1; j < (cols - 1); ++j)
+            putchar('.');
 
-            printf("%c", characterToUse);
-
-            if (y - (yndex + 1) == 0) {
-                printf("\n");
-            }
-        }
+        // right border
+        putchar('#');
+        putchar('\n');
     }
+
+    // inferior row
+    for (int i = 0; i < cols; ++i)
+        putchar('#');
+
+    putchar('\n');
 }
 
 int main() {
@@ -38,7 +43,7 @@ int main() {
         printf("%d\n", i);
     }
     
-    draw_board(5, 5);
+    draw_board(10, 10);
 
     return 0;
 }
