@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+struct position {
+    int x;
+    int y;
+}
+
 int sumTwoNumbers() {
     int num1 = 20;
     int num2 = 30;
