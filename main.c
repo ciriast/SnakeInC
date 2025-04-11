@@ -3,7 +3,7 @@
 struct position {
     int x;
     int y;
-}
+};
 
 int sumTwoNumbers() {
     int num1 = 20;
@@ -49,6 +49,16 @@ int main() {
     }
     
     draw_board(10, 10);
+    
+    struct position positions[5];
+
+    for (int i = 0; i < 5; ++i) {
+        positions[i].x = i + 10;
+        positions[i].y = i + 20;
+
+        printf("%d\n", positions[i].x);
+        printf("%d\n", positions[i].y);
+    }
 
     return 0;
 }
