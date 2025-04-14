@@ -13,6 +13,10 @@ int sumTwoNumbers() {
 }
 
 void draw_board(int rows, int cols) {
+    struct position snakePosition;
+    snakePosition.x = 2;
+    snakePosition.y = 2;
+
     // superior row
     for (int i = 0; i < cols; ++i)
         putchar('#');
@@ -24,8 +28,16 @@ void draw_board(int rows, int cols) {
         // left border
         putchar('#');
 
-        for (int j = 1; j < (cols - 1); ++j)
-            putchar('.');
+        int isSnakeInX = (i + 1) - snakePosition.x == 0;
+
+        for (int j = 1; j < (cols - 1); ++j) {
+            char charToDraw = '.';
+            
+            if (isSnakeInX == 1 && j == snakePosition.y)
+                charToDraw = 'O';
+
+            putchar(charToDraw);
+        }
 
         // right border
         putchar('#');
@@ -42,23 +54,7 @@ void draw_board(int rows, int cols) {
 int main() {
     printf("Welcome to Snake made in C \n");
 
-    printf("%d\n", sumTwoNumbers());
-
-    for(int i = 1; i <= 10; ++i) {
-        printf("%d\n", i);
-    }
-    
     draw_board(10, 10);
-    
-    struct position positions[5];
-
-    for (int i = 0; i < 5; ++i) {
-        positions[i].x = i + 10;
-        positions[i].y = i + 20;
-
-        printf("%d\n", positions[i].x);
-        printf("%d\n", positions[i].y);
-    }
 
     return 0;
 }
