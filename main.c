@@ -20,6 +20,11 @@ void increase_y(struct position* snake_position) {
     snake_position->y += 1;
 }
 
+void start_game() {
+    while(1) {
+    }
+}
+
 void draw_board(int rows, int cols) {
     struct position snakePosition;
     snakePosition.x = 2;
