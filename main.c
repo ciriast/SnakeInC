@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+int snake_position_x = 5;
+int snake_position_y = 5;
+
 struct position {
     int x;
     int y;
@@ -19,6 +22,10 @@ void increase_x(struct position* snake_position) {
 void increase_y(struct position* snake_position) {
     snake_position->y += 1;
 }
+
+struct position snake_global_position;
+snake_global_position.x = snake_position_x;
+snake_global_position.y = snake_position_y;
 
 void start_game() {
     while(1) {
