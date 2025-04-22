@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-int snake_position_x = 5;
-int snake_position_y = 5;
+const int snake_position_x = 5;
+const int snake_position_y = 1;
 
 struct position {
     int x;
@@ -23,9 +23,7 @@ void increase_y(struct position* snake_position) {
     snake_position->y += 1;
 }
 
-struct position snake_global_position;
-snake_global_position.x = snake_position_x;
-snake_global_position.y = snake_position_y;
+struct position snake_global_position = { snake_position_x, snake_position_y };
 
 void start_game() {
     while(1) {
@@ -33,9 +31,6 @@ void start_game() {
 }
 
 void draw_board(int rows, int cols) {
-    struct position snakePosition;
-    snakePosition.x = 2;
-    snakePosition.y = 2;
 
     // superior row
     for (int i = 0; i < cols; ++i)
@@ -48,12 +43,12 @@ void draw_board(int rows, int cols) {
         // left border
         putchar('#');
 
-        int isSnakeInX = (i + 1) - snakePosition.x == 0;
+        int isSnakeInX = (i + 1) - snake_global_position.x == 0;
 
         for (int j = 1; j < (cols - 1); ++j) {
             char charToDraw = '.';
             
-            if (isSnakeInX == 1 && j == snakePosition.y)
+            if (isSnakeInX == 1 && j == snake_global_position.y)
                 charToDraw = 'O';
 
             putchar(charToDraw);
@@ -74,15 +69,7 @@ void draw_board(int rows, int cols) {
 int main() {
     printf("Welcome to Snake made in C \n");
 
-    struct position snake_position = {.x = 5, .y = 5};
-    printf("snake initial position in x: %d\n", snake_position.x);
-    printf("snake initial position in y: %d\n", snake_position.y);
-
-    increase_x(&snake_position);
-    increase_y(&snake_position);
-
-    printf("new snake position in x: %d\n", snake_position.x);
-    printf("new snake position in y: %d\n", snake_position.y);
+    draw_board(10, 10);
 
     return 0;
 }
