@@ -25,11 +25,6 @@ void increase_y(struct position* snake_position) {
 
 struct position snake_global_position = { snake_position_x, snake_position_y };
 
-void start_game() {
-    while(1) {
-    }
-}
-
 void draw_board(int rows, int cols) {
 
     // superior row
@@ -66,10 +61,15 @@ void draw_board(int rows, int cols) {
     putchar('\n');
 }
 
+void start_game() {
+    while(1) {
+        draw_board(10, 10);
+    }
+}
+
 int main() {
     printf("Welcome to Snake made in C \n");
-
-    draw_board(10, 10);
-
+    
+    start_game();
     return 0;
 }
