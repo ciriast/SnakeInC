@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 const int snake_position_x = 5;
 const int snake_position_y = 1;
@@ -63,7 +65,10 @@ void draw_board(int rows, int cols) {
 
 void start_game() {
     while(1) {
+        system("clear");
         draw_board(10, 10);
+        increase_y(&snake_global_position);
+        sleep(1);        
     }
 }
 
